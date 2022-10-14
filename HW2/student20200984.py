@@ -28,16 +28,30 @@ for row in ws:
 		for n in total_sort:
 			A_cnt = int(len(total_sort) * 0.3)
 			B_cnt = int(len(total_sort)*0.7) - A_cnt
+			C_cnt = len(total_sort) - B_cnt
+			betterA = int(A_cnt*0.5)
+			betterB = int(B_cnt*0.5)
+			betterC = int(C_cnt*0.5)
+
+			for i in range(betterA):
+				if ws.cell(row=row_new, column=7).value == total_sort[i]:
+					ws.cell(row=row_new,column=8).value='A+'
 		
-			for i in range(A_cnt):
+			for i in range(betterA,A_cnt-betterA):
 				if ws.cell(row=row_new, column=7).value == total_sort[i]:
 					ws.cell(row=row_new, column=8).value = 'A0'	
 			
-			for i in range(A_cnt,A_cnt+ B_cnt):
+			for i in range(A_cnt,A_cnt+betterB):
+				if ws.cell(row=row_new, column=7).value == total_sort[i]:
+					ws.cell(row=row_new, column=8).value = 'B+'	
+			for i in range(A_cnt+betterB,A_cnt+B_cnt):
 				if ws.cell(row=row_new, column=7).value == total_sort[i]:
 					ws.cell(row=row_new,column=8).value ='B0'
 
-			for i in range(A_cnt+B_cnt,len(total_sort)):
+			for i in range(A_cnt+B_cnt,A_cnt+B_cnt+betterC):
+				if ws.cell(row=row_new, column=7).value == total_sort[i]:
+					ws.cell(row=row_new, column=8).value = 'C+'	
+			for i in range(A_cnt+B_cnt+betterC,len(total_sort)):
 				if ws.cell(row=row_new, column=7).value == total_sort[i]:
 					ws.cell(row=row_new,column=8).value = 'C0'
 
