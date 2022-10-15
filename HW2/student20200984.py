@@ -35,6 +35,7 @@ while total_sort:
 		for row in ws:
 			if ws.cell(row = row_new, column = 7).value == total_sort[i]:
 				ws.cell(row=row_new, column = 8).value='A0'
+				grade.append('A0')
 				stu_num -= 1
 				count += 1
 				a_grade += 1
@@ -50,6 +51,7 @@ while total_sort:
 		for row in ws:	
 			if ws.cell(row=row_new, column=7).value == total_sort[i]:
 				ws.cell(row=row_new,column=8).value='B0'	
+				grade.append('B0')
 				stu_num -= 1
 				count += 1
 				b_grade += 1
@@ -63,10 +65,59 @@ while i < len(total_sort):
 	for row in ws:
 		if ws.cell(row=row_new, column=7).value == total_sort[i]:
 			ws.cell(row=row_new, column=8).value = 'C0'
+			grade.append('C0')
 			count += 1
 			c_grade += 1
 		row_new += 1
 	i += count
+i = 0
+betterA_num = a_grade * 0.5
+while total_sort:
+	if betterA_num-total_sort.count(total_sort[i]) >= 0:
+		row_new = 2
+		count = 0
+		for row in ws:
+			if ws.cell(row = row_new, column = 7).value == total_sort[i]:
+				ws.cell(row=row_new, column = 8).value='A+'
+				grade[i] = 'A+'
+				betterA_num -= 1
+				count += 1
+			row_new += 1
+		i += count	
+	else:
+		break
+i=a_grade
+betterB_num = b_grade * 0.5
+while total_sort:
+	if betterB_num-total_sort.count(total_sort[i]) >= 0:
+		row_new = 2
+		count = 0
+		for row in ws:
+			if ws.cell(row = row_new, column = 7).value == total_sort[i]:
+				ws.cell(row=row_new, column = 8).value='B+'
+				grade[i] = 'B+'
+				betterB_num -= 1
+				count += 1
+			row_new += 1
+		i += count	
+	else:
+		break
 
+i = a_grade + b_grade
+betterC_num = c_grade * 0.5
+while total_sort:
+	if betterC_num-total_sort.count(total_sort[i]) >= 0:
+		row_new = 2
+		count = 0
+		for row in ws:
+			if ws.cell(row = row_new, column = 7).value == total_sort[i]:
+				ws.cell(row=row_new, column = 8).value='C+'
+				grade[i] = 'C+'
+				betterC_num -= 1
+				count += 1
+			row_new += 1
+		i += count	
+	else:
+		break
 
 wb.save( "student.xlsx" )
