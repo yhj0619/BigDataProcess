@@ -4,9 +4,6 @@ import sys
 
 with open(sys.argv[1], "rt") as f:
 	genre_dict = {}
-	dict_no_dup = dict()
-	result_dict = {}
-	result={}
 	data = f.read()
 	lines = data.split("\n")
 	with open(sys.argv[2],"wt") as f1:
