@@ -30,5 +30,5 @@ with open(sys.argv[1], "rt") as f:
 				v_sum = int(new_list[0]) + int(vehicles)
 				t_sum = int(new_list[1]) + int(trips)
 				uber_dict[key] = str(v_sum) + "," +str(t_sum)
-		for i in uber_dict.keys():
-			f1.write(i + " " + uber_dict[i] + "\n")
+		for k, v in uber_dict.items():
+			f1.write("%s %s\n" % (k, v))
