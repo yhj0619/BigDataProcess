@@ -4,7 +4,7 @@ import sys
 import datetime
 
 with open(sys.argv[1], "rt") as f:
-	uber_dict = {}
+	uber_dict = dict()
 	v_sum = 0
 	t_sum = 0
 	days=['MON','TUE','WED','THU','FRI','SAT','SUN']
