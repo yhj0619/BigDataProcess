@@ -22,7 +22,5 @@ with open(sys.argv[1], "rt") as f:
 			str_day = days[datetime.date(y,m,d).weekday()]
 			new_key = region + "," + str_day
 			new_value = vehicles + "," + trips
-			uber_dict[new_key] = new_value
-		for i in uber_dict:
-			f1.write('%s %s\n' % (i, uber_dict[i]))
+			f1.write('%s %s\n' % (new_key, new_value))
 
