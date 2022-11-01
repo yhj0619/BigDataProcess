@@ -5,8 +5,6 @@ import datetime
 
 with open(sys.argv[1], "rt") as f:
 	uber_dict = {}
-	v_sum = 0
-	t_sum = 0
 	days=['MON','TUE','WED','THU','FRI','SAT','SUN']
 	data = f.read()
 	lines = data.split("\n")
