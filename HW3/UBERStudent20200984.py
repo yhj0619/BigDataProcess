@@ -5,6 +5,8 @@ import datetime
 
 with open(sys.argv[1], "rt") as f:
 	uber_dict = {}
+	v_sum = 0
+	t_sum = 0
 	days=['MON','TUE','WED','THU','FRI','SAT','SUN']
 	data = f.read()
 	lines = data.split("\n")
@@ -29,4 +31,4 @@ with open(sys.argv[1], "rt") as f:
 				t_sum = int(new_list[1]) + int(trips)
 				uber_dict[key] = str(v_sum) + "," +str(t_sum)
 		for i in uber_dict.keys():
-			f1.write('%s %s\n' % (i, uber_dict[i]))
+			f1.write(i + " " + uber_dict[i] + "\n")
