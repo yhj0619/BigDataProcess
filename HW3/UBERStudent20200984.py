@@ -24,5 +24,5 @@ with open(sys.argv[1], "rt") as f:
 			uber_dict[key] = str(v_sum) + "," +str(t_sum)
 
 with open(sys.argv[2], "wt") as f:
-	for k, v in uber_dict.items():
-		f.write("%s %s\n" % (k, v))
+	for i in uber_dict.keys():
+		f.write("%s %s\n" % (i, uber_dict[i]))
